@@ -1,0 +1,41 @@
+Flip Plan:
+==========
+
+needs:
+
+- sheets
+- history/back-stack management
+- navigation
+- handy annotations for sheets
+- state saving and restoring
+   serialize history/back-stack
+   serialize inner widget state
+- separation between view and controller/presenter
+
+wants:
+ - provide activity sub class to manage single container of any type
+    do not assume a single pane container
+
+Sheets:
+ - are an extension of a ViewGroup/FrameLayout
+ - have basic lifecycle management methods
+ - are dynamically inserted/removed from a flip container (folder? cabinet?)
+ - can contain sheet containers
+   - there should only be one main history tracker, so it can not be a integral part
+      of the container code. history class of some sort?
+
+Container:
+ - contains one or more Sheets
+ - can be subclassed to do a sliding pager, or side-by-side pane layout, etc
+
+History:
+ - back and forward options?
+    treat it like a undo/redo stack?
+ - potentially have a extensible History implementation
+    it could allow providing a "history" object to the main container
+    and a custom tracker could do things like wrap an adapter or cursor type thing
+    to dynamically traverse the "Stack"
+ - each element in the stack should not just be a single sheet change
+    it must be able to track multiple sheets, including embeded sheets.
+    each element will be a group of changes
+
