@@ -39,3 +39,26 @@ History:
     it must be able to track multiple sheets, including embeded sheets.
     each element will be a group of changes
 
+MV*
+ - view: Container/Desk/Whatever, Sheet
+ - presenter/controller: Presenter  (think of something...)
+
+
+ book, binder, folder, folio, workbook, ledger (this for the thing that keeps track of all the sheets?),
+
+ API:
+
+ Core object is the Ledger, that manages the state of the containers and sheets
+ View object is a Sheet, it contains the raw view's of the display, and can handle some basic lifecycle bits
+ Presenter object contains the actual behavior logic
+
+ Questions:
+
+ - Why is the presenter a direct part of the API? Why would the main API need to hold onto it?
+ - What is the logic flow like? What is the life cycle like?
+ - What is the Ledger's job?
+ - What kind of information does the Ledger need to do its job?
+ - Is a separate Container object necessary to do nested sheets? Is it necessary at all?
+ - Assuming we have support for nested sheets, and grouped state changes, what does that make the api
+    and data stored look like?
+
